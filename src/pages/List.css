@@ -1,0 +1,248 @@
+.header-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--color-antiquewhite);
+  width: 1440px;
+  height: 108px;
+}
+.kidtube3 {
+  position: absolute;
+  top: 11px;
+  left: 0;
+  display: inline-block;
+  width: 204px;
+  height: 88px;
+}
+.logo-inner {
+  position: absolute;
+  height: 32.66%;
+  width: 27.62%;
+  top: 15.15%;
+  right: -17.68%;
+  bottom: 52.18%;
+  left: 90.06%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.logo2 {
+  position: absolute;
+  top: 16px;
+  left: calc(50% - 91px);
+  width: 181px;
+  height: 66px;
+  cursor: pointer;
+}
+.button3,
+.search1 {
+  position: absolute;
+  font-family: var(--font-inter);
+}
+.search1 {
+  border: 0;
+  font-size: var(--font-size-sm);
+  background-color: var(--color-gray);
+  top: 31px;
+  left: 74px;
+  border-radius: var(--br-xl);
+  width: 350px;
+  height: 45px;
+}
+.button3 {
+  top: calc(50% - 13px);
+  left: 24.1%;
+  font-size: var(--font-size-base);
+  line-height: 24px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--color-white);
+  text-align: center;
+}
+.sign-up1 {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: var(--color-lightcoral);
+  position: absolute;
+  top: 34px;
+  right: 227px;
+  border-radius: var(--br-31xl);
+  width: 126px;
+  height: 48px;
+}
+.login2:hover,
+.sign-up1:hover {
+  background-color: var(--color-darksalmon-100);
+}
+.button4 {
+  position: absolute;
+  width: 75.61%;
+  top: calc(50% - 13px);
+  left: 12.99%;
+  font-size: var(--font-size-base);
+  line-height: 24px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-family: var(--font-inter);
+  color: var(--color-white);
+  text-align: center;
+  display: inline-block;
+}
+.login2 {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: var(--color-lightcoral);
+  position: absolute;
+  top: 34px;
+  right: 71px;
+  border-radius: var(--br-31xl);
+  width: 126px;
+  height: 48px;
+}
+.header1 {
+  position: absolute;
+  top: 0;
+  left: calc(50% - 720px);
+  width: 1440px;
+  height: 108px;
+  font-size: var(--font-size-36xl);
+  color: var(--color-darksalmon);
+  font-family: var(--font-cherry-bomb);
+}
+.image-19-icon,
+.learning-farm-animals {
+  position: absolute;
+  top: 28px;
+  left: 623px;
+}
+.image-19-icon {
+  top: 0;
+  left: 0;
+  width: 576px;
+  height: 324px;
+  object-fit: cover;
+}
+.btnplay2-icon {
+  position: absolute;
+  top: 121px;
+  left: 253px;
+  width: 81.62px;
+  height: 81.62px;
+}
+.learning-farm-animals-for-kids-parent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1254px;
+  height: 324px;
+}
+.video2,
+.video3 {
+  position: absolute;
+  top: 611px;
+  left: calc(50% - 590px);
+  width: 1254px;
+  height: 324px;
+  cursor: pointer;
+}
+.video3 {
+  top: 1059px;
+  width: 1169px;
+}
+.wild-animals-coloring {
+  position: absolute;
+  top: 35px;
+  left: 623px;
+}
+.video4 {
+  position: absolute;
+  top: 1507px;
+  left: calc(50% - 590px);
+  width: 989px;
+  height: 324px;
+  cursor: pointer;
+}
+.btnplay1-child,
+.top-15-amazing {
+  position: absolute;
+  top: 30px;
+  left: 623px;
+}
+.btnplay1-child {
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  background-color: var(--color-white);
+  backdrop-filter: blur(279.17px);
+  width: 81.62px;
+  height: 81.62px;
+  opacity: 0.6;
+}
+.vector-icon4 {
+  position: absolute;
+  height: 37.93%;
+  width: 32.67%;
+  top: 31.04%;
+  right: 33.66%;
+  bottom: 31.03%;
+  left: 33.67%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  opacity: 0.5;
+}
+.btnplay1,
+.video1 {
+  position: absolute;
+  cursor: pointer;
+}
+.btnplay1 {
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  top: 121px;
+  left: 253px;
+  width: 81.62px;
+  height: 81.62px;
+}
+.video1 {
+  top: 163px;
+  left: calc(50% - 590px);
+  width: 1218px;
+  height: 324px;
+}
+.image-10-icon2,
+.image-9-icon2 {
+  position: absolute;
+  top: 0;
+  left: 64px;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}
+.image-10-icon2 {
+  top: 37px;
+  left: 1302px;
+  width: 250px;
+  height: 250px;
+}
+.decor2 {
+  position: absolute;
+  bottom: -60px;
+  left: calc(50% - 784px);
+  width: 1599px;
+  height: 300px;
+}
+.list {
+  position: relative;
+  background-color: var(--color-linen);
+  width: 100%;
+  height: 2048px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-5xl);
+  color: var(--color-black);
+  font-family: var(--font-roboto);
+}

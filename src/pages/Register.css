@@ -1,0 +1,213 @@
+.image-10-icon3,
+.image-9-icon3 {
+  position: absolute;
+  top: 25px;
+  left: 1279px;
+  width: 230px;
+  height: 249px;
+  object-fit: cover;
+}
+.image-10-icon3 {
+  top: 50px;
+  left: 69px;
+  width: 250px;
+  height: 250px;
+}
+.decor3 {
+  position: absolute;
+  bottom: -26px;
+  left: calc(50% - 789px);
+  width: 1599px;
+  height: 300px;
+  cursor: pointer;
+}
+.kidtube5 {
+  position: absolute;
+  top: 11px;
+  left: 0;
+  display: inline-block;
+  width: 204px;
+  height: 88px;
+}
+.logo-child1 {
+  position: absolute;
+  height: 32.66%;
+  width: 27.62%;
+  top: 15.15%;
+  right: -17.68%;
+  bottom: 52.18%;
+  left: 90.06%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.logo4 {
+  position: absolute;
+  top: calc(50% - 404px);
+  left: calc(50% - 91px);
+  width: 181px;
+  height: 66px;
+  cursor: pointer;
+}
+.and-confirm-it {
+  border: 0;
+  font-family: var(--font-cherry-bomb);
+  font-size: var(--font-size-13xl);
+  background-color: transparent;
+  top: 16px;
+  left: 12px;
+  letter-spacing: 0.5px;
+  line-height: 13px;
+  color: var(--color-black);
+  text-align: left;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  opacity: 0.25;
+}
+.and-confirm-it,
+.confirm,
+.pass2 {
+  position: absolute;
+}
+.confirm {
+  top: 387px;
+  left: 0;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-gainsboro);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--color-black);
+  box-sizing: border-box;
+  width: 605px;
+  height: 69px;
+}
+.pass2 {
+  border: 0;
+  font-family: var(--font-cherry-bomb);
+  font-size: var(--font-size-13xl);
+  background-color: transparent;
+  top: 16px;
+  left: 8px;
+  letter-spacing: 0.5px;
+  line-height: 13px;
+  color: var(--color-black);
+  text-align: left;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  opacity: 0.25;
+}
+.password1 {
+  position: absolute;
+  top: 258px;
+  left: 0;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-gainsboro);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--color-black);
+  box-sizing: border-box;
+  width: 605px;
+  height: 69px;
+}
+.lets-us-know {
+  border: 0;
+  font-family: var(--font-cherry-bomb);
+  font-size: var(--font-size-13xl);
+  background-color: transparent;
+  position: absolute;
+  top: 15px;
+  left: 11px;
+  letter-spacing: 0.5px;
+  line-height: 13px;
+  color: var(--color-black);
+  text-align: left;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  opacity: 0.25;
+}
+.email2 {
+  position: absolute;
+  top: 129px;
+  left: 0;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-gainsboro);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--color-black);
+  box-sizing: border-box;
+  width: 605px;
+  height: 69px;
+}
+.what-is-your {
+  border: 0;
+  font-family: var(--font-cherry-bomb);
+  font-size: var(--font-size-13xl);
+  background-color: transparent;
+  position: absolute;
+  top: 15px;
+  left: 8px;
+  letter-spacing: 0.5px;
+  line-height: 13px;
+  color: var(--color-black);
+  text-align: left;
+  display: inline-block;
+  width: 392px;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  opacity: 0.25;
+}
+.name2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-gainsboro);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--color-black);
+  box-sizing: border-box;
+  width: 605px;
+  height: 69px;
+}
+.button7 {
+  width: 51.59%;
+  top: calc(50% - 13px);
+  left: 24.1%;
+  font-size: var(--font-size-5xl);
+  line-height: 24px;
+  text-transform: uppercase;
+  font-family: var(--font-cherry-bomb);
+  color: var(--color-white);
+  text-align: center;
+  display: inline-block;
+}
+.butt1,
+.button7,
+.reg {
+  position: absolute;
+}
+.butt1 {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: var(--color-lightcoral);
+  height: 16.67%;
+  width: 30.58%;
+  top: 113.16%;
+  right: 34.71%;
+  bottom: -29.82%;
+  left: 34.71%;
+  border-radius: var(--br-31xl);
+}
+.butt1:hover {
+  background-color: var(--color-darksalmon-100);
+}
+.reg {
+  top: 284px;
+  left: calc(50% - 302px);
+  width: 605px;
+  height: 456px;
+}
+.register {
+  position: relative;
+  background-color: var(--color-linen);
+  width: 100%;
+  height: 1024px;
+  overflow: hidden;
+  text-align: left;
+  font-size: var(--font-size-36xl);
+  color: var(--color-darksalmon);
+  font-family: var(--font-cherry-bomb);
+}
