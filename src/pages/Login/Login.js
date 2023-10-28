@@ -31,7 +31,7 @@ const Login = () => {
               className="give-us-the"
               placeholder="Type your password here ..."
               type="password"
-            />
+            />  
           </div>
           <div className="pass" />
           <input
@@ -40,20 +40,11 @@ const Login = () => {
             type="email"
           />
         </div>
-        <div className="name">
-          <div className="pass" />
-          <input
-            className="write-your-childs"
-            placeholder="Write your child’s name here ..."
-            type="text"
-          />
-        </div>
         <button className="butt" onClick={onButtClick}>
           <div className="button2">Let’s go!</div>
         </button>
         <img className="log-child" alt="" src="/line-3.svg" />
         <img className="log-item" alt="" src="/line-3.svg" />
-        <div className="or">OR</div>
         <div className="and">
           <p className="and1">And</p>
         </div>

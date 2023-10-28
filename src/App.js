@@ -5,10 +5,10 @@ import {
   useLocation,
 } from "react-router-dom";
 import Kidtube from "./pages/Kidtube";
-import Login from "./pages/Login";
+import Login from "./pages/Login/Login";
 import List from "./pages/List";
 import Video from "./pages/Video";
-import Register from "./pages/Register";
+import Register from "./pages/Register/Register";
 import { useEffect } from "react";
 
 function App() {

@@ -54,14 +54,15 @@
   font-family: var(--font-cherry-bomb);
   font-size: var(--font-size-13xl);
   background-color: transparent;
-  top: 16px;
-  left: 12px;
+  top: 8px;
+  left: 10px;
   letter-spacing: 0.5px;
-  line-height: 13px;
+  line-height: 50px;
   color: var(--color-black);
   text-align: left;
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   opacity: 0.25;
+  width: 580px;
 }
 .and-confirm-it,
 .confirm,
@@ -81,13 +82,15 @@
 }
 .pass2 {
   border: 0;
+  position: absolute;
   font-family: var(--font-cherry-bomb);
   font-size: var(--font-size-13xl);
   background-color: transparent;
-  top: 16px;
-  left: 8px;
+  top: 8px;
+  left: 10px;
+  width: 580px;
   letter-spacing: 0.5px;
-  line-height: 13px;
+  line-height: 50px;
   color: var(--color-black);
   text-align: left;
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -111,10 +114,11 @@
   font-size: var(--font-size-13xl);
   background-color: transparent;
   position: absolute;
-  top: 15px;
-  left: 11px;
+  top: 8px;
+  left: 10px;
+  width: 580px;
   letter-spacing: 0.5px;
-  line-height: 13px;
+  line-height: 50px;
   color: var(--color-black);
   text-align: left;
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -138,14 +142,14 @@
   font-size: var(--font-size-13xl);
   background-color: transparent;
   position: absolute;
-  top: 15px;
-  left: 8px;
+  top: 8px;
+  left: 10px;
+  width: 580px;
   letter-spacing: 0.5px;
-  line-height: 13px;
+  line-height: 50px;
   color: var(--color-black);
   text-align: left;
   display: inline-block;
-  width: 392px;
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   opacity: 0.25;
 }
@@ -210,4 +214,9 @@
   font-size: var(--font-size-36xl);
   color: var(--color-darksalmon);
   font-family: var(--font-cherry-bomb);
+}
+.error-feedback {
+  color: red;
+  font-size: 20px;
+  margin-top: 80px; /* Đặt khoảng cách với input */
 }

@@ -73,10 +73,11 @@
   font-size: var(--font-size-13xl);
   background-color: transparent;
   position: absolute;
-  top: 16px;
-  left: 9px;
+  top: 8px;
+  left: 10px;
+  width: 580px;
   letter-spacing: 0.5px;
-  line-height: 13px;
+  line-height: 50px;
   color: var(--color-black);
   text-align: left;
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -89,30 +90,9 @@
   width: 605px;
   height: 69px;
 }
-.write-your-childs {
-  border: 0;
-  font-family: var(--font-cherry-bomb);
-  font-size: var(--font-size-13xl);
-  background-color: transparent;
-  position: absolute;
-  top: 15px;
-  left: 8px;
-  letter-spacing: 0.5px;
-  line-height: 13px;
-  color: var(--color-black);
-  text-align: left;
-  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  opacity: 0.25;
-}
-.name {
-  top: 0;
-  left: 0;
-  width: 605px;
-  height: 69px;
-}
+
 .butt,
-.button2,
-.name {
+.button2{
   position: absolute;
 }
 .button2 {
@@ -150,8 +130,7 @@
   height: 4px;
 }
 .log-child,
-.log-item,
-.or {
+.log-item {
   position: absolute;
 }
 .log-item {
@@ -160,12 +139,7 @@
   width: 308.01px;
   height: 4px;
 }
-.or {
-  top: 110px;
-  left: calc(50% - 22.5px);
-  letter-spacing: 0.5px;
-  line-height: 13px;
-}
+
 .and1 {
   margin: 0;
 }
@@ -180,7 +154,7 @@
   line-height: 13px;
 }
 .log {
-  top: 284px;
+  top: 154px;
   left: calc(50% - 303px);
   width: 605px;
   height: 456px;
