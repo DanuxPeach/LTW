@@ -1,17 +1,26 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
+import React from 'react';
 
 const Login = () => {
   const navigate = useNavigate();
 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+    
   const onLogoContainerClick = useCallback(() => {
     navigate("/");
   }, [navigate]);
 
   const onButtClick = useCallback(() => {
+    if (!email || !password) {
+      setError("Please enter both email and password.");
+      return;
+    }
     navigate("/");
-  }, [navigate]);
+  }, [navigate, email, password]);
 
   return (
     <div className="login1">
@@ -31,6 +40,8 @@ const Login = () => {
               className="give-us-the"
               placeholder="Type your password here ..."
               type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />  
           </div>
           <div className="pass" />
@@ -38,8 +49,12 @@ const Login = () => {
             className="give-us-the"
             placeholder="Give us the email ^_^"
             type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
+        {/* Display error message if exists */}
+        {error && <div className="error-message" style={{ color: 'red', marginTop: '100px' }} >{error}</div>}
         <button className="butt" onClick={onButtClick}>
           <div className="button2">Let’s go!</div>
         </button>
