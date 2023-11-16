@@ -5,6 +5,10 @@ import "./Kidtube.css";
 const Kidtube = () => {
   const navigate = useNavigate();
 
+  const onButtClick = useCallback(() => {
+    window.location.reload();
+  }, []);
+
   const onVid2ContainerClick = useCallback(() => {
     navigate("/video");
   }, [navigate]);
@@ -91,7 +95,7 @@ const Kidtube = () => {
       </div>
       <img className="home-icon" alt="" src="/home.svg" />
       <div className="header">
-        <div className="logo">
+        <div className="logo" style={{ cursor: 'pointer' }} onClick={onButtClick}>
           <div className="kidtube1">Kidtube</div>
           <img className="logo-child" alt="" src="/group-244.svg" />
         </div>
