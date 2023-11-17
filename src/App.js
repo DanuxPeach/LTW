@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import Kidtube from "./pages/MainPage/Kidtube";
 import Login from "./pages/Login/Login";
-import List from "./pages/List";
+import List from "./pages/categories/List";
 import Video from "./pages/Video";
 import Register from "./pages/Register/Register";
 import { useEffect } from "react";
