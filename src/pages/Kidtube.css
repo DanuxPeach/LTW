@@ -308,9 +308,9 @@
   height: 66px;
 }
 .button,
+.button1,
 .search {
   position: absolute;
-  font-family: var(--font-inter);
 }
 .search {
   border: 0;
@@ -321,16 +321,19 @@
   border-radius: var(--br-xl);
   width: 350px;
   height: 45px;
+  padding: 0 15px;
+  text-align: left;
+  font-family: var(--font-cherry-bomb);
 }
 .button {
   top: calc(50% - 13px);
-  left: 24.1%;
+  left: 27%;
   font-size: var(--font-size-base);
   line-height: 24px;
-  text-transform: uppercase;
   font-weight: 600;
   color: var(--color-white);
   text-align: center;
+  font-family: var(--font-cherry-bomb);
 }
 .sign-up {
   cursor: pointer;
@@ -343,10 +346,11 @@
   border-radius: var(--br-31xl);
   width: 126px;
   height: 48px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 .login:hover,
 .sign-up:hover {
-  background-color: var(--color-darksalmon-100);
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.2);
 }
 .button1 {
   width: 75.61%;
@@ -354,12 +358,12 @@
   left: 12.99%;
   font-size: var(--font-size-base);
   line-height: 24px;
-  text-transform: uppercase;
   font-weight: 600;
   font-family: var(--font-inter);
   color: var(--color-white);
   text-align: center;
   display: inline-block;
+  font-family: var(--font-cherry-bomb);
 }
 .button1,
 .header,
@@ -376,6 +380,7 @@
   border-radius: var(--br-31xl);
   width: 126px;
   height: 48px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 .header {
   top: 0;
