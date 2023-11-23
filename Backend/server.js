@@ -11,12 +11,12 @@ app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
 
-// Kết nối đến MySQL
+// Mysql connection
 const connection = mysql.createConnection({
     host: 'localhost',
-    user: 'root', // Thay đổi tên người dùng và mật khẩu nếu cần
+    user: 'root', 
     password: '',
-    database: 'users', // Tên của cơ sở dữ liệu
+    database: 'users',
   });
 
 connection.connect((err) => {
@@ -67,4 +67,8 @@ app.post('/login', (req, res) => {
             res.send({message:'Credentials Don\'t Match!'})
         }
     })
+})
+
+app.get('/search', (req, res) => {
+    res.json()
 })
