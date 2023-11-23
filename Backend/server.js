@@ -70,5 +70,14 @@ app.post('/login', (req, res) => {
 })
 
 app.get('/search', (req, res) => {
-    res.json()
+    const searchTerm = req.query.q;
+    const query = `SELECT * FROM Videos WHERE title LIKE '%${searchTerm}%'`
+    connection.query(SQL, Values, (err, results)=>{
+        if(err){
+            res.send({error: err})
+        }
+        else{
+            res.json(results);
+        }
+    })
 })

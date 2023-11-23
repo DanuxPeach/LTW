@@ -9,7 +9,7 @@ import Login from "./pages/Login/Login";
 import List from "./pages/Categories/List";
 import Video from "./pages/Stream/Video";
 import Register from "./pages/Register/Register";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const action = useNavigationType();
