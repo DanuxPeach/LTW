@@ -2,6 +2,7 @@ import { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Register.css";
 import React from 'react';
+import axios from "axios";
 
 const initFromValue = {
   name:"",
@@ -16,7 +17,7 @@ const isEmptyValue = (value) => {
 
 const isEmailInvalid = (email) => {
   // Sử dụng một biểu thức chính quy đơn giản để kiểm tra tính hợp lệ của email
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   return !emailPattern.test(email);
 };
 
@@ -41,7 +42,7 @@ const Register = () => {
       [name]: value,
     });
   };
- 
+
   const validateForm = () => {
     const error = {};
 
@@ -54,7 +55,7 @@ const Register = () => {
     {
       error["email"] = "Email is required";
     }
-    else if(!isEmailInvalid(formValue.email))
+    else if(isEmailInvalid(formValue.email))
     {
       error["email"] = "Email is invalid";
     }
@@ -77,21 +78,21 @@ const Register = () => {
     return Object.keys(error).length === 0;
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    
-    if(validateForm())
-    {
-      console.log("Form values:", formValue);
+  
+    const isFormValid = validateForm();
+  
+    if (isFormValid) {
+      const createUser = await axios.post('http://localhost:5000/register', {
+        Name: formValue.name,
+        Email: formValue.email,
+        Password: formValue.password
+      }).then((respone)=>{
+        console.log(response);
+      });
     }
-    else
-    {
-      console.log("Form invalid:");
-    }
-
-    
   };
-  //#endregion
 
   return (
     <div className="register">
@@ -103,7 +104,7 @@ const Register = () => {
         <div className="kidtube5">Kidtube</div>
         <img className="logo-child1" alt="" src="/group-2444.svg" />
       </div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit>
         <div className="reg">
           <div className="name2">
             <input
@@ -157,7 +158,7 @@ const Register = () => {
               <div className="error-feedback">{formError.confirmPassword}</div>
             )}
           </div>
-          <button type="submit" className="butt1">
+          <button type="submit" className="butt1" onClick={handleSubmit}>
             <div className="button7">Start!</div>
           </button>
         </div>
