@@ -1,9 +1,32 @@
-import { useCallback } from "react";
+import { useCallback, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Kidtube.css";
 
 const Kidtube = () => {
   const navigate = useNavigate();
+  const [videos, setVideos] = useState([])
+  const [query, setQuery] = useState("")
+  const [suggestions, setSuggestions] = useState([])
+
+  const onChangeHandler = (query) => {
+    let matches = []
+    if (query.length>0) {
+      matches = videos.filter(video => {
+        const regex = new RegExp(`${query}`, "gi")
+        return video.title.match(regex)
+      })
+    }
+    console.log('matches', matches)
+    setSuggestions(matches)
+    setQuery(query)
+  }
+
+  const onSearchSubmit = useCallback((e) => {
+    e.preventDefault();
+    const results = performSearch(searchQuery); 
+  setSearchResults(results);
+  navigate("/search?query=" + searchQuery);
+  }, [navigate, searchQuery])
 
   const onVid2ContainerClick = useCallback(() => {
     navigate("/video");
@@ -95,7 +118,7 @@ const Kidtube = () => {
           <div className="kidtube1">Kidtube</div>
           <img className="logo-child" alt="" src="/group-244.svg" />
         </div>
-        <input className="search" placeholder="Search" type="text" />
+        <input className="search" placeholder="Search" type="text" value={query} onChange={(e) => onChangeHandler(e.target.value)} />
         <button className="sign-up" onClick={onSignUpClick}>
           <div className="button">Sign up</div>
         </button>
