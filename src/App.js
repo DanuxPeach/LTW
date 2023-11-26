@@ -4,11 +4,12 @@ import {
   useNavigationType,
   useLocation,
 } from "react-router-dom";
-import Kidtube from "./pages/MainPage/Kidtube";
-import Login from "./pages/Login/Login";
-import List from "./pages/Categories/List";
-import Video from "./pages/Stream/Video";
-import Register from "./pages/Register/Register";
+import {Kidtube , Login , List , Video , Register } from "./pages";
+// import Kidtube from "./pages/MainPage/Kidtube";
+// import Login from "./pages/Login/Login";
+// import List from "./pages/Categories/List";
+// import Video from "./pages/Stream/Stream";
+// import Register from "./pages/Register/Register";
 import { useEffect } from "react";
 
 function App() {

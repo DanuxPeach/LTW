@@ -1,13 +1,10 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Kidtube.css";
+import Header from "../../components/header/Header";
 
 const Kidtube = () => {
   const navigate = useNavigate();
-
-  const onButtClick = useCallback(() => {
-    window.location.reload();
-  }, []);
 
   const onVid2ContainerClick = useCallback(() => {
     navigate("/video");
@@ -37,16 +34,9 @@ const Kidtube = () => {
     navigate("/list");
   }, [navigate]);
 
-  const onSignUpClick = useCallback(() => {
-    navigate("/register");
-  }, [navigate]);
-
-  const onLoginClick = useCallback(() => {
-    navigate("/login");
-  }, [navigate]);
-
   return (
     <div className="kidtube">
+      < Header />
       <div className="decor">
         <img className="image-9-icon" alt="" src="/image-9@2x.png" />
         <img className="image-10-icon" alt="" src="/image-10@2x.png" />
@@ -92,20 +82,6 @@ const Kidtube = () => {
           <img className="thumnail1-icon" alt="" src="/thumnail41@2x.png" />
         </div>
         <div className="top-categories">Top categories</div>
-      </div>
-      <img className="home-icon" alt="" src="/home.svg" />
-      <div className="header">
-        <div className="logo" style={{ cursor: 'pointer' }} onClick={onButtClick}>
-          <div className="kidtube1">Kidtube</div>
-          <img className="logo-child" alt="" src="/group-244.svg" />
-        </div>
-        <input className="search" placeholder="Search" type="text" />
-        <button className="sign-up" onClick={onSignUpClick}>
-          <div className="button">Sign up</div>
-        </button>
-        <button className="login" onClick={onLoginClick}>
-          <div className="button1">Sign in</div>
-        </button>
       </div>
     </div>
   );

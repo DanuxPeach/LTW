@@ -1,6 +1,7 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import "./List.css";
+import Header from "../../components/header/Header";
 
 const List = () => {
   const navigate = useNavigate();
@@ -35,20 +36,7 @@ const List = () => {
 
   return (
     <div className="list">
-      <div className="header1">
-        <div className="header-child" />
-        <div className="logo2" onClick={onLogoContainerClick}>
-          <div className="kidtube3">Kidtube</div>
-          <img className="logo-inner" alt="" src="/group-2442.svg" />
-        </div>
-        <input className="search1" placeholder="Search" type="text" />
-        <button className="sign-up1" onClick={onSignUpClick}>
-          <div className="button3">Sign up</div>
-        </button>
-        <button className="login2" onClick={onLoginClick}>
-          <div className="button4">Sign in</div>
-        </button>
-      </div>
+      < Header />
       <div className="video2" onClick={onVideo2ContainerClick}>
         <div className="learning-farm-animals-for-kids-parent">
           <div className="learning-farm-animals">
