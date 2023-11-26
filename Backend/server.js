@@ -15,8 +15,8 @@ app.listen(port, () => {
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root', 
-    password: '',
-    database: 'users',
+    password: 'toor',
+    database: 'kidtube',
   });
 
 connection.connect((err) => {
@@ -33,7 +33,7 @@ app.post('/register', (req, res) => {
     const sentEmail = req.body.Email
     const sentPassword = req.body.Password
 
-    const SQL = 'INSERT INTO user (Name, Email, Password) VALUES (?,?,?)'
+    const SQL = 'INSERT INTO users (username, email, password_hash) VALUES (?,?,?)'
     const Values = [sentName, sentEmail, sentPassword]
 
     connection.query(SQL, Values, (err, results)=>{
@@ -52,7 +52,7 @@ app.post('/login', (req, res) => {
     const sentLoginEmail = req.body.LoginEmail
     const sentLoginPassword = req.body.LoginPassword
 
-    const SQL = 'SELECT * FROM user WHERE Email = ? && Password = ?'
+    const SQL = 'SELECT * FROM user WHERE email = ? && password_hash = ?'
     const Values = [ sentLoginEmail, sentLoginPassword]
     // Thực hiện xác thực thông tin đăng nhập ở đây, ví dụ:
 
@@ -69,10 +69,10 @@ app.post('/login', (req, res) => {
     })
 })
 
-app.get('/search', (req, res) => {
+app.get('/api/search', (req, res) => {
     const searchTerm = req.query.q;
-    const query = `SELECT * FROM Videos WHERE title LIKE '%${searchTerm}%'`
-    connection.query(SQL, Values, (err, results)=>{
+    const query = `SELECT * FROM videos WHERE title LIKE '%${searchTerm}%'`
+    connection.query(query, (err, results)=>{
         if(err){
             res.send({error: err})
         }
