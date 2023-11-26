@@ -71,7 +71,7 @@ app.post('/login', (req, res) => {
 
 app.get('/api/search', (req, res) => {
     const searchTerm = req.query.q;
-    const query = `SELECT * FROM videos WHERE title LIKE '%${searchTerm}%'`
+    const query = `SELECT video_uuid, title, thumbnail_url, video_url FROM videos WHERE title LIKE '%${searchTerm}%'`
     connection.query(query, (err, results)=>{
         if(err){
             res.send({error: err})
