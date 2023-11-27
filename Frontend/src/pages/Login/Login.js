@@ -8,23 +8,30 @@ const Login = () => {
   const navigate = useNavigate(); 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const onLogoContainerClick = useCallback(() => {
     navigate("/");
   }, [navigate]);
 
-  const onButtClick = useCallback(() => {
-    navigate("/");
-  }, [navigate]);
-
   const handleLogin = async () => {
-    const response = await axios.post("http://localhost:5000/login", {
-      LoginEmail: email,
-      LoginPassword: password,
-    }).then((response)=>{
-      console.log(response);
-    });
-  };
+    try {
+      const response = await axios.post("http://localhost:5000/login", {
+        LoginEmail: email,
+        LoginPassword: password,
+      });
+
+      if (response.status === 200 && response.data && response.data.username) {
+        const userData = response.data;
+        localStorage.setItem('user', JSON.stringify(userData));
+        navigate("/");
+      } else {
+        setError("Invalid credentials"); // Cập nhật thông báo lỗi
+      }
+    } catch (error) {
+      setError("Login failed. Please try again."); // Xử lý lỗi từ server
+    }
+  };  
 
   return (
     <div className="login1">
@@ -32,6 +39,7 @@ const Login = () => {
         <div className="kidtube2">Kidtube</div>
         <img className="logo-item" alt="" src="/group-2441.svg" />
       </div>
+      {error && <p className="error-message">{error}</p>}
       <div className="decor1">
         <img className="image-9-icon1" alt="" src="/image-91@2x.png" />
         <img className="image-10-icon1" alt="" src="/image-10@2x.png" />

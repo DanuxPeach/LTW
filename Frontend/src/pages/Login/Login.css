@@ -171,3 +171,9 @@
   color: var(--color-darksalmon);
   font-family: var(--font-cherry-bomb);
 }
+
+.error-message{
+  position: absolute;
+  margin-top: 230px;
+  margin-left: 600px;
+}
