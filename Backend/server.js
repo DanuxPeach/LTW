@@ -52,16 +52,15 @@ app.post('/login', (req, res) => {
     const sentLoginEmail = req.body.LoginEmail
     const sentLoginPassword = req.body.LoginPassword
 
-    const SQL = 'SELECT * FROM user WHERE Email = ? && Password = ?'
+    const SQL = 'SELECT Name FROM user WHERE Email = ? && Password = ?'
     const Values = [ sentLoginEmail, sentLoginPassword]
-    // Thực hiện xác thực thông tin đăng nhập ở đây, ví dụ:
 
     connection.query(SQL, Values, (err, results)=>{
         if(err){
             res.send({error: err})
         }
         if(results.length > 0){
-            res.send(results)
+            res.send({ username: results[0].Name })
         }
         else{
             res.send({message:'Credentials Don\'t Match!'})
