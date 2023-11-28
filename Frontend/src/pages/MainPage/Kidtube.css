@@ -20,7 +20,7 @@
   width: 1599px;
   height: 300px;
 }
-.lexis-adventure-time {
+.thumbnail2 {
   position: absolute;
   top: 388px;
   left: 168px;
@@ -45,7 +45,7 @@
   height: 418px;
   cursor: pointer;
 }
-.new-sweetie {
+.thumbnail1 {
   position: absolute;
   top: 389px;
   left: 138px;
@@ -308,22 +308,8 @@
   height: 66px;
 }
 .button,
-.button1,
-.search {
+.button1 {
   position: absolute;
-}
-.search {
-  border: 0;
-  font-size: var(--font-size-sm);
-  background-color: var(--color-gray);
-  top: 31px;
-  left: 74px;
-  border-radius: var(--br-xl);
-  width: 350px;
-  height: 45px;
-  padding: 0 15px;
-  text-align: left;
-  font-family: var(--font-cherry-bomb);
 }
 .button {
   top: calc(50% - 13px);

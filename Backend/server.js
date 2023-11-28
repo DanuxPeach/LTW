@@ -69,15 +69,31 @@ app.post('/login', (req, res) => {
     })
 })
 
-app.get('/api/search', (req, res) => {
-    const searchTerm = req.query.q;
-    const query = `SELECT video_uuid, title, thumbnail_url, video_url FROM videos WHERE title LIKE '%${searchTerm}%'`
-    connection.query(query, (err, results)=>{
-        if(err){
-            res.send({error: err})
-        }
-        else{
-            res.json(results);
-        }
-    })
+app.get('/list', (req, res) => {
+    const {title, category} = req.query.q;
+    if (title) {
+        const query = `SELECT video_uuid, title, thumbnail_url, video_url FROM videos WHERE title LIKE '%${title}%'`
+        connection.query(query, (err, results)=>{
+            if(err){
+                res.send({error: err})
+            }
+            else{
+                res.json(results);
+            }
+        })
+    } else if (category) {
+        const query = `SELECT v.video_uuid, v.title, v.thumbnail_url, v.video_url
+                            FROM Videos v
+                            INNER JOIN Video_Category_Relation r ON v.video_uuid = r.video_uuid
+                            INNER JOIN Categories c ON r.category_id = c.category_id
+                                WHERE c.category_name = '%${category}%'`;
+        connection.query(query, (err, results)=>{
+            if(err){
+                res.send({error: err})
+            }
+            else{
+                res.json(results);
+            }
+        })
+    }
 })
