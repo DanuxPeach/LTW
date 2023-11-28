@@ -50,8 +50,8 @@ const Kidtube = () => {
           <div className="art">Art</div>
           <img className="thumnail1-icon" alt="" src="/thumnail2@2x.png" />
         </div>
-        <div className="cate3" onClick={onCategoryClick('Creative')}>
-          <div className="creative">Creative</div>
+        <div className="cate3" onClick={onCategoryClick('Languages')}>
+          <div className="languages">Languages</div>
           <img className="thumnail1-icon" alt="" src="/thumnail3@2x.png" />
         </div>
         <div className="cate4" onClick={onCategoryClick('Numbers')}>
