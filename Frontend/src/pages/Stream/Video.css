@@ -1,0 +1,89 @@
+
+.video-using-anima-plugin {
+  top: calc(50% - 397px);
+  height: 768px;
+}
+.video {
+  position: relative;
+  background-color: var(--color-linen);
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+  font-size: var(--font-size-36xl);
+  color: var(--color-darksalmon);
+  font-family: var(--font-cherry-bomb);
+}
+
+.video-content {
+  position: relative;
+  /* Your existing styles for video content */
+  margin-top: 130px;
+}
+
+.video-actions {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column; /* Sắp xếp theo hàng dọc */
+  align-items: center;
+  width: 100%;
+}
+
+.like-container,
+.comment-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.like-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1px;
+  border: none;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.like-container{
+  vertical-align: middle; /* Để ô input nằm trên cùng một dòng với h3 */
+  margin-left: 10px; /* Khoảng cách giữa h3 và ô input */
+}
+
+.like-button img {
+  width: 50px;
+  height: 50px;
+}
+
+.comment-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.comment {
+  border: 0;
+  background-color: var(--color-gray);
+  top: 31px;
+  left: 74px;
+  border-radius: var(--br-xl);
+  width: 350px;
+  height: 45px;
+  padding: 0 15px;
+  text-align: left;
+  font-family: var(--font-cherry-bomb);
+  font-size: var(--font-size-base);
+}
+
+
+.comment-section input {
+  vertical-align: middle; /* Để ô input nằm trên cùng một dòng với h3 */
+  margin-left: 30px; /* Khoảng cách giữa h3 và ô input */
+}
+
