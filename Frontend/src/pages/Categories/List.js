@@ -6,6 +6,7 @@ import Header from "../../components/header/Header";
 
 const List = () => {
   const navigate = useNavigate();
+
   const [videoList, setVideoList] = useState([]);
   const queryParams = new URLSearchParams(location.search);
   const titleQuery = queryParams.get('title');
@@ -41,7 +42,8 @@ const List = () => {
       <div className="video-list">
         {videoList.map((video) => (
           <div className="video-item" key={video.video_uuid} onClick={() => onVideoContainerClick(video.video_uuid)}>
-            <img className="thumbnail-image" src={video.thumbnailUrl} alt="" />
+            {console.log('Thumbnail URL:', `http://localhost:5000/${video.thumbnail_url.replace(/\\/g, '/')}`)}
+            <img className="thumbnail-image" src={`http://localhost:5000/${video.thumbnail_url.replace(/\\/g, '/')}`} alt="" />
             <div className="video-title">
               {video.title}
             </div>
@@ -49,7 +51,6 @@ const List = () => {
           </div>
         ))}
       </div>
-
       <div className="decor2">
         <img className="image-9-icon2" alt="" src="/image-9@2x.png" />
         <img className="image-10-icon2" alt="" src="/image-10@2x.png" />

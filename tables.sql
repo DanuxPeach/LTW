@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS Videos;
 DROP TABLE IF EXISTS Users;
 
 CREATE TABLE IF NOT EXISTS Users (
-    user_id INT PRIMARY KEY,
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(255),
     email VARCHAR(255),
     password_hash VARCHAR(255)
@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS Categories (
 );
 
 CREATE TABLE IF NOT EXISTS Video_Category_Relation (
-    relation_id INT PRIMARY KEY,
+    relation_id INT AUTO_INCREMENT PRIMARY KEY,
     video_uuid VARCHAR(100),
     category_id INT,
     FOREIGN KEY (video_uuid) REFERENCES Videos(video_uuid),
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS Video_Category_Relation (
 );
 
 CREATE TABLE IF NOT EXISTS Likes (
-    like_id INT PRIMARY KEY,
+    like_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
     video_uuid VARCHAR(100),
     FOREIGN KEY (user_id) REFERENCES Users(user_id),
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS Likes (
 );
 
 CREATE TABLE IF NOT EXISTS Comments (
-    comment_id INT PRIMARY KEY,
+    comment_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT,
     video_uuid VARCHAR(100),
     comment_text TEXT,

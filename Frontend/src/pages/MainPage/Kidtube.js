@@ -5,20 +5,16 @@ import Header from "../../components/header/Header";
 
 const Kidtube = () => {
   const navigate = useNavigate();
-
-  const navigateToVideo = () => {
-    navigate("/video");
-  };
+ 
+  const onVideoContainerClick = useCallback((uuid) => {
+    navigate(`/video?v=${uuid}`);
+  }, [navigate]);
 
   const navigateToList = (category) => {
     const query = `?category=${category}`;
     navigate(`/list${query}`);
   };
-
-  const onVidContainerClick = useCallback(() => {
-    navigateToVideo();
-  }, []);
-
+  
   const onCategoryClick = useCallback((category) => {
     navigateToList(category);
   }, []);
@@ -31,13 +27,13 @@ const Kidtube = () => {
         <img className="image-10-icon" alt="" src="/image-10@2x.png" />
       </div>
       <div className="rcm">
-        <div className="vid2" onClick={() => onVidContainerClick}>
-          <div className="thumbnail2">Lexi’s adventure time</div>
-          <img className="image-8-icon" alt="" src="/image-8@2x.png" />
+        <div className="vid2" key='772ed302-1b29-4b9c-967a-24867ffb4d54' onClick={() => onVideoContainerClick('772ed302-1b29-4b9c-967a-24867ffb4d54')}>
+          <div className="thumbnail2">Beware of Fake Medicines - Safety Education - Kids Cartoon - Sheriff Labrador Police Cartoon</div>
+          <img className="image-8-icon" alt="" src="/JvqJZP8IdkEhd.jpg" />
         </div>
-        <div className="vid1" onClick={() => onVidContainerClick}>
-          <div className="thumbnail1">Sweetie paradise for children</div>
-          <img className="image-8-icon" alt="" src="/image-7@2x.png" />
+        <div className="vid1" key='55751ea7-970b-4fa1-a116-04fa85cb6be2' onClick={() => onVideoContainerClick('55751ea7-970b-4fa1-a116-04fa85cb6be2')}>
+          <div className="thumbnail1">How To Draw A Funny Turkey</div>
+          <img className="image-8-icon" alt="" src="/O0_2y4G6eAshd.jpg" />
         </div>
         <div className="recommend-for-you">Recommend for you</div>
       </div>

@@ -6,6 +6,7 @@ const mysql = require('mysql')
 
 app.use(express.json());
 app.use(cors())
+app.use('/public', express.static('public'));
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
@@ -65,6 +66,20 @@ app.post('/login', (req, res) => {
         }
         else{
             res.send({message:'Credentials Don\'t Match!'})
+        }
+    })
+})
+
+app.get('/videodetails', (req, res) => {
+    const {v:video_uuid} = req.query;  
+    const query = `SELECT video_uuid, title, thumbnail_url, video_url FROM videos WHERE video_uuid = '${video_uuid}'`;
+
+    connection.query(query, (err, results)=>{
+        if(err){
+            res.send({error: err})
+        }
+        else{
+            res.json(results);
         }
     })
 })
