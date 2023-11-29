@@ -82,19 +82,7 @@
   bottom: 25.75%;
   left: 17.61%;
 }
-.right-button {
-  cursor: pointer;
-  border: 0;
-  padding: 0;
-  background-color: transparent;
-  position: absolute;
-  height: 17.04%;
-  width: 4.85%;
-  top: 39.47%;
-  right: 0;
-  bottom: 43.49%;
-  left: 95.15%;
-}
+
 .vector-icon3 {
   position: absolute;
   height: 47.86%;
@@ -107,19 +95,7 @@
   overflow: hidden;
   max-height: 100%;
 }
-.left-button {
-  cursor: pointer;
-  border: 0;
-  padding: 0;
-  background-color: transparent;
-  position: absolute;
-  height: 17.04%;
-  width: 4.85%;
-  top: 39.47%;
-  right: 95.15%;
-  bottom: 43.49%;
-  left: 0;
-}
+
 .recommend-for-you {
   position: absolute;
   top: -56px;
