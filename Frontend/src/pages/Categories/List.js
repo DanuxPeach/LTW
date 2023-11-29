@@ -1,44 +1,55 @@
-import { useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./List.css";
+import axios from "axios"
 import Header from "../../components/header/Header";
 
 const List = () => {
   const navigate = useNavigate();
-  
-  const onVideoContainerClick = useCallback(() => {
-    navigate("/video");
+  const [videoList, setVideoList] = useState([]);
+  const queryParams = new URLSearchParams(location.search);
+  const titleQuery = queryParams.get('title');
+  const categoryQuery = queryParams.get('category');
+
+  const onVideoContainerClick = useCallback((uuid) => {
+    navigate(`/video?v=${uuid}`);
   }, [navigate]);
+
+  useEffect(() => {
+    const fetchVideoList = async () => {
+      try {
+        if (titleQuery) {
+          const response = await axios.get(`http://localhost:5000/list?title=${titleQuery}`);
+          setVideoList(response.data);
+          console.log('Response ?title: ', response.data);
+        } else {
+          const response = await axios.get(`http://localhost:5000/list?category=${categoryQuery}`);
+          setVideoList(response.data);
+          console.log('Response ?query: ', response.data);
+        }
+        
+      } catch (error) {
+        console.error('Error fetching video list:', error);
+      }
+    };
+    fetchVideoList();
+  }, []);
 
   return (
     <div className="list">
       < Header />
-      <div className="video1" onClick={onVideoContainerClick}>
-        <div className="top-15-amazing">
-          TOP 15 Amazing animals for kids | All Things Animal TV
-        </div>
-        <img className="image-19-icon" alt="" src="/vid1@2x.png" />
-        <button className="btnplay1">
-          <div className="btnplay1-child" />
-          <img className="vector-icon4" alt="" src="/vector3.svg" />
-        </button>
-      </div>
-      <div className="video2" onClick={onVideoContainerClick}>
-        <div className="learning-farm-animals-for-kids-parent">
-          <div className="learning-farm-animals">
-            Learning Farm Animals for kids - Fun animals video for kids
+      <div className="video-list">
+        {videoList.map((video) => (
+          <div className="video-item" key={video.video_uuid} onClick={() => onVideoContainerClick(video.video_uuid)}>
+            <img className="thumbnail-image" src={video.thumbnailUrl} alt="" />
+            <div className="video-title">
+              {video.title}
+            </div>
+            <img className="btnplay2-icon" alt="" src="/btnplay2.svg" />
           </div>
-          <img className="image-19-icon" alt="" src="/image-19@2x.png" />
-          <img className="btnplay2-icon" alt="" src="/btnplay2.svg" />
-        </div>
+        ))}
       </div>
-      <div className="video3" onClick={onVideoContainerClick}>
-        <img className="image-19-icon" alt="" src="/image-17@2x.png" />
-        <div className="learning-farm-animals">
-          Animal quiz with me | Vocabulary Quiz - Learn Entry
-        </div>
-        <img className="btnplay2-icon" alt="" src="/btnplay2.svg" />
-      </div>
+      
       <div className="video4" onClick={onVideoContainerClick}>
         <img className="image-19-icon" alt="" src="/image-18@2x.png" />
         <div className="wild-animals-coloring">
