@@ -31,22 +31,14 @@ const Kidtube = () => {
         <img className="image-10-icon" alt="" src="/image-10@2x.png" />
       </div>
       <div className="rcm">
-        <div className="vid2" onClick={() =>onVidContainerClick}>
+        <div className="vid2" onClick={() => onVidContainerClick}>
           <div className="thumbnail2">Lexi’s adventure time</div>
           <img className="image-8-icon" alt="" src="/image-8@2x.png" />
         </div>
-        <div className="vid1" onClick={() =>onVidContainerClick}>
+        <div className="vid1" onClick={() => onVidContainerClick}>
           <div className="thumbnail1">Sweetie paradise for children</div>
           <img className="image-8-icon" alt="" src="/image-7@2x.png" />
         </div>
-        <button className="right-button">
-          <img className="vector-icon" alt="" src="/vector.svg" />
-          <img className="vector-icon1" alt="" src="/vector1.svg" />
-        </button>
-        <button className="left-button">
-          <img className="vector-icon" alt="" src="/vector.svg" />
-          <img className="vector-icon3" alt="" src="/vector2.svg" />
-        </button>
         <div className="recommend-for-you">Recommend for you</div>
       </div>
       <div className="category">
