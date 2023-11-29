@@ -6,6 +6,7 @@ const mysql = require('mysql')
 
 app.use(express.json());
 app.use(cors())
+app.use('/public', express.static('public'));
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
