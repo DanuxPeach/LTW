@@ -49,14 +49,7 @@ const List = () => {
           </div>
         ))}
       </div>
-      
-      <div className="video4" onClick={onVideoContainerClick}>
-        <img className="image-19-icon" alt="" src="/image-18@2x.png" />
-        <div className="wild-animals-coloring">
-          Wild Animals coloring pages | EP.2
-        </div>
-        <img className="btnplay2-icon" alt="" src="/btnplay2.svg" />
-      </div>
+
       <div className="decor2">
         <img className="image-9-icon2" alt="" src="/image-9@2x.png" />
         <img className="image-10-icon2" alt="" src="/image-10@2x.png" />

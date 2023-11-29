@@ -1,10 +1,10 @@
-.image-19-icon,
-.learning-farm-animals {
+
+.thumbnail-image {
   position: absolute;
   top: 28px;
   left: 623px;
 }
-.image-19-icon {
+.thumbnail-image {
   top: 0;
   left: 0;
   width: 576px;
@@ -18,88 +18,24 @@
   width: 81.62px;
   height: 81.62px;
 }
-.learning-farm-animals-for-kids-parent {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 1254px;
-  height: 324px;
-}
-.video2,
-.video3 {
-  position: absolute;
-  top: 611px;
-  left: calc(50% - 590px);
-  width: 1254px;
-  height: 324px;
-  cursor: pointer;
-}
-.video3 {
-  top: 1059px;
-  width: 1169px;
-}
-.wild-animals-coloring {
+.video-title {
   position: absolute;
   top: 35px;
   left: 623px;
 }
-.video4 {
-  position: absolute;
-  top: 1507px;
+.video-item {
+  position: relative;
   left: calc(50% - 590px);
   width: 989px;
   height: 324px;
   cursor: pointer;
+  padding: 50px;
 }
-.btnplay1-child,
-.top-15-amazing {
-  position: absolute;
-  top: 30px;
-  left: 623px;
+.video-list{
+  margin-top: 200px;
+  height: 100%;
 }
-.btnplay1-child {
-  top: 0;
-  left: 0;
-  border-radius: 50%;
-  background-color: var(--color-white);
-  backdrop-filter: blur(279.17px);
-  width: 81.62px;
-  height: 81.62px;
-  opacity: 0.6;
-}
-.vector-icon4 {
-  position: absolute;
-  height: 37.93%;
-  width: 32.67%;
-  top: 31.04%;
-  right: 33.66%;
-  bottom: 31.03%;
-  left: 33.67%;
-  max-width: 100%;
-  overflow: hidden;
-  max-height: 100%;
-  opacity: 0.5;
-}
-.btnplay1,
-.video1 {
-  position: absolute;
-  cursor: pointer;
-}
-.btnplay1 {
-  border: 0;
-  padding: 0;
-  background-color: transparent;
-  top: 121px;
-  left: 253px;
-  width: 81.62px;
-  height: 81.62px;
-}
-.video1 {
-  top: 163px;
-  left: calc(50% - 590px);
-  width: 1218px;
-  height: 324px;
-}
+/* =================================================================*/
 .image-10-icon2,
 .image-9-icon2 {
   position: absolute;
