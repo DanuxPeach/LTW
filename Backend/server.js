@@ -70,6 +70,20 @@ app.post('/login', (req, res) => {
     })
 })
 
+app.get('/videodetails', (req, res) => {
+    const {v:video_uuid} = req.query;  
+    const query = `SELECT video_uuid, title, thumbnail_url, video_url FROM videos WHERE video_uuid = '${video_uuid}'`;
+
+    connection.query(query, (err, results)=>{
+        if(err){
+            res.send({error: err})
+        }
+        else{
+            res.json(results);
+        }
+    })
+})
+
 app.get('/list', (req, res) => {
     const {title, category} = req.query;
     if (title) {
