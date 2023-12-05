@@ -28,10 +28,6 @@ const Register = () => {
     navigate("/");
   }, [navigate]);
 
-  const onButtClick = useCallback(() => {
-    navigate("/login");
-  }, [navigate]);
-
   //#region component
   const [formValue, setFromValue] = useState(initFromValue);
   const [formError, setFromError] = useState(initFromValue);
@@ -84,13 +80,21 @@ const Register = () => {
     const isFormValid = validateForm();
   
     if (isFormValid) {
-      const createUser = await axios.post('http://localhost:5000/register', {
-        Name: formValue.name,
-        Email: formValue.email,
-        Password: formValue.password
-      }).then((respone)=>{
-        console.log(response);
-      });
+      // Gửi thông tin đăng ký thành công
+      try {
+        const createUser = await axios.post('http://localhost:5000/register', {
+          Name: formValue.name,
+          Email: formValue.email,
+          Password: formValue.password
+        });
+        
+        // Nếu đăng ký thành công, thực hiện chuyển hướng đến trang đăng nhập
+        if (createUser.data.message === 'User added!') {
+          navigate("/login"); // Chuyển hướng sang trang đăng nhập
+        }
+      } catch (error) {
+        console.error('Error during registration:', error);
+      }
     }
   };
 
@@ -104,7 +108,7 @@ const Register = () => {
         <div className="kidtube5">Kidtube</div>
         <img className="logo-child1" alt="" src="/group-2444.svg" />
       </div>
-      <form onSubmit>
+      <form onSubmit={handleSubmit}>
         <div className="reg">
           <div className="name2">
             <input

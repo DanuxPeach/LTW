@@ -21,15 +21,16 @@ const Login = () => {
         LoginPassword: password,
       });
 
-      if (response.status === 200 && response.data && response.data.username) {
-        const userData = response.data;
-        localStorage.setItem('user', JSON.stringify(userData));
+      if (response.status === 200 && response.data && response.data.user_id) {
+        const { user_id, username } = response.data;
+        localStorage.setItem("user_id", user_id);
+        localStorage.setItem("username", username);
         navigate("/");
       } else {
-        setError("Invalid credentials"); // Cập nhật thông báo lỗi
+        setError("Invalid credentials");
       }
     } catch (error) {
-      setError("Login failed. Please try again."); // Xử lý lỗi từ server
+      setError("Login failed. Please try again.");
     }
   };  
 

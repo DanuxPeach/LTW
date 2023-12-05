@@ -38,21 +38,10 @@
   color: var(--color-darksalmon);
   font-family: var(--font-cherry-bomb);
 }
-.button1, .buttonlogin, .search {
+.button1, .buttonlogin {
   position: absolute;
   font-family: var(--font-cherry-bomb);
   font-size: var(--font-size-base);
-}
-.search {
-  border: 0;
-  background-color: var(--color-gray);
-  top: 31px;
-  left: 74px;
-  border-radius: var(--br-xl);
-  width: 350px;
-  height: 45px;
-  padding: 0 15px;
-  text-align: left;
 }
 .button1 {
   top: calc(50% - 13px);
