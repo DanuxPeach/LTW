@@ -13,12 +13,15 @@ const Stream = () => {
 
   const [recommendList, setRecommendList] = useState([]);
   const [videoDetails, setVideoDetails] = useState([]);
+  const [videoKey, setVideoKey] = useState(0);
+
   const [comments, setComments] = useState([]);
   const [likesCount, setLikesCount] = useState(0);
   const [user, setUser] = useState(null);
 
   const onVideoContainerClick = useCallback((uuid) => {
     navigate(`/video?v=${uuid}`);
+    setVideoKey((prevKey) => prevKey + 1);
   }, [navigate]);
 
   useEffect(() => {
@@ -97,6 +100,7 @@ const Stream = () => {
           // Make an API call using Axios with async/await
           const response = await axios.get(`http://localhost:5000/videodetails?v=${uuidQuery}`);
           setVideoDetails(response.data);
+          setVideoKey(uuidQuery);
           console.log('API Response:', response.data);
         } catch (error) {
           console.error('Error fetching video details:', error);
@@ -107,7 +111,7 @@ const Stream = () => {
     };
 
     fetchVideoDetails();
-  },[]);
+  },[location.search]);
   
   const commentInputRef = useRef(null);
 
@@ -124,7 +128,7 @@ const Stream = () => {
   return (
     <div className="video">
       <Header user={user} setUser={setUser} />
-      <div className="video-content">
+      <div className="video-content" key={videoKey}>
         {console.log('Rendering with videoDetails:', videoDetails[0]?.thumbnail_url, videoDetails[0]?.video_url)}
         {videoDetails.length > 0 && videoDetails[0]?.thumbnail_url && videoDetails[0]?.video_url ?(
             <>
