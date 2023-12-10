@@ -1,18 +1,25 @@
 import React, { useCallback, useState , useRef, useEffect, useLayoutEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import VideoPlayer from "react-video-js-player"
 import "./Video.css";
 import Header from "../../components/header/Header";
 
 const Stream = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const videoUUID = searchParams.get("v");
+
+  const [recommendList, setRecommendList] = useState([]);
   const [videoDetails, setVideoDetails] = useState([]);
   const [comments, setComments] = useState([]);
   const [likesCount, setLikesCount] = useState(0);
   const [user, setUser] = useState(null);
+
+  const onVideoContainerClick = useCallback((uuid) => {
+    navigate(`/video?v=${uuid}`);
+  }, [navigate]);
 
   useEffect(() => {
     const fetchComments = async () => {
@@ -34,9 +41,18 @@ const Stream = () => {
         setLikesCount(0);
       }
     };
-
+    const fetchRecommendations = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5000/recommend/${videoUUID}`);
+        setVideoList(response.data);
+        console.log('Response Recommend: ', response.data);
+      } catch (error) {
+        console.error('Error fetching recommendations:', error);
+      }
+    };
     fetchComments();
     fetchLikesCount();
+    fetchRecommendations();
   }, [videoUUID]);
 
   const handleLike = async () => {
@@ -92,7 +108,6 @@ const Stream = () => {
 
     fetchVideoDetails();
   },[]);
-
   
   const commentInputRef = useRef(null);
 
@@ -151,6 +166,18 @@ const Stream = () => {
           </div>
         </div>
       </div>
+      <div className="recommendations-container">
+        {recommendList.map((video) => (
+            <div className="video-item" key={video.video_uuid} onClick={() => onVideoContainerClick(video.video_uuid)}>
+              {console.log('Thumbnail URL:', `http://localhost:5000/${video.thumbnail_url.replace(/\\/g, '/')}`)}
+              <img className="thumbnail-image" src={`http://localhost:5000/${video.thumbnail_url.replace(/\\/g, '/')}`} alt="" />
+              <div className="video-title">
+                {video.title}
+              </div>
+            </div>
+          ))}
+      </div>
+      
     </div>
   );
 };

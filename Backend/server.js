@@ -130,6 +130,27 @@ app.get('/list', (req, res) => {
     }
 })
 
+app.get('/recommend/:videoUUID', (req, res) => {
+    const videoUUID = req.params.videoUUID;
+    const query = `
+    SELECT *
+        FROM Videos v
+        WHERE MATCH(title) AGAINST(
+            (SELECT title FROM Videos WHERE video_uuid = '${videoUUID}')
+            IN NATURAL LANGUAGE MODE
+            )
+        AND v.video_uuid != '${videoUUID}';`
+
+    connection.query(query, (err, results)=>{
+        if(err){
+            res.send({error: err})
+        }
+        else{
+            res.json(results);
+        }
+    })
+})
+
 const queryDatabase = (query, values) => {
     return new Promise((resolve, reject) => {
         connection.query(query, values, (err, results) => {
