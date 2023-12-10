@@ -44,7 +44,7 @@ const Stream = () => {
     const fetchRecommendations = async () => {
       try {
         const response = await axios.get(`http://localhost:5000/recommend/${videoUUID}`);
-        setVideoList(response.data);
+        setRecommendList(response.data);
         console.log('Response Recommend: ', response.data);
       } catch (error) {
         console.error('Error fetching recommendations:', error);
