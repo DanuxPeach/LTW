@@ -18,7 +18,8 @@ CREATE TABLE IF NOT EXISTS Videos (
     description TEXT,
     upload_date DATE,
     thumbnail_url VARCHAR(255),
-    video_url VARCHAR(255)
+    video_url VARCHAR(255),
+    FULLTEXT INDEX idx_title (title)
 );
 
 CREATE TABLE IF NOT EXISTS Categories (
