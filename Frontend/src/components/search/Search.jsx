@@ -4,6 +4,7 @@ import "./Search.css";
 
 const Search = () => {
     const [searchTerm, setSearchTerm] = useState('');
+    const [videoList, setVideoList] = useState([]);
     const navigate = useNavigate();
 
     const handleKeyDown = (event) => {
@@ -13,11 +14,40 @@ const Search = () => {
         }
     };
     const handleChange = (event) => {
-      setSearchTerm(event.target.value);
+      const newSearchTerm = event.target.value;
+      setSearchTerm(newSearchTerm);
+      if (newSearchTerm.length >= 3 ) {
+        fetchVideoList();
+      } else {
+        setVideoList([]);
+      }
+    };
+
+    const fetchVideoList = async () => {
+      try {
+        let response;
+        response = await fetch(`http://localhost:5000/list?title=${searchTerm}`);
+        if (response.ok) {
+          const data = await response.json();
+          setVideoList(data);
+          console.log('Response:', data);
+        } else {
+          console.error('Error fetching video list:', response.status);
+        }
+      } catch (error) {
+        console.error('Error fetching video list:', error);
+      }
     };
 
   return (
-    <input className='search' type="text" placeholder="Search" value={searchTerm} onChange={handleChange} onKeyDown={handleKeyDown} />
+    <div>
+      <input className='search' type="text" placeholder="Search" value={searchTerm} onChange={handleChange} onKeyDown={handleKeyDown} />
+      <div className='searchrecommend'>
+        {videoList.map((video) => (
+            <div key={video.video_uuid}className="video-title">{video.title}</div>
+        ))}
+      </div>
+    </div>
   );
 };
 

@@ -57,6 +57,25 @@ app.post('/register', async (req, res) => {
     });
 });
 
+app.post('/check-email', (req, res) => {
+    const sentEmail = req.body.Email;
+
+    const SQL = `SELECT * FROM Users WHERE email = ?`;
+    const Values = [sentEmail];
+
+    connection.query(SQL, Values, (err, results) => {
+        if (err) {
+            res.status(500).send({ error: err });
+        } else {
+            if (results.length > 0) {
+                res.status(200).send({ available: false });
+            } else {
+                res.status(200).send({ available: true });
+            }
+        }
+    });
+});
+
 app.post('/login', async (req, res) => {
     const sentLoginEmail = req.body.LoginEmail
     const sentLoginPassword = req.body.LoginPassword

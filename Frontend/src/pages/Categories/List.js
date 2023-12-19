@@ -20,16 +20,19 @@ const List = () => {
   useEffect(() => {
     const fetchVideoList = async () => {
       try {
+        let response;
         if (titleQuery) {
-          const response = await axios.get(`http://localhost:5000/list?title=${titleQuery}`);
-          setVideoList(response.data);
-          console.log('Response ?title: ', response.data);
+          response = await fetch(`http://localhost:5000/list?title=${titleQuery}`);
         } else {
-          const response = await axios.get(`http://localhost:5000/list?category=${categoryQuery}`);
-          setVideoList(response.data);
-          console.log('Response ?query: ', response.data);
+          response = await fetch(`http://localhost:5000/list?category=${categoryQuery}`);
         }
-        
+        if (response.ok) {
+          const data = await response.json();
+          setVideoList(data);
+          console.log(titleQuery ? 'Response ?title:' : 'Response ?query:', data);
+        } else {
+          console.error('Error fetching video list:', response.status);
+        }
       } catch (error) {
         console.error('Error fetching video list:', error);
       }

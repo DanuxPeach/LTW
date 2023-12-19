@@ -16,16 +16,27 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post("http://localhost:5000/login", {
-        LoginEmail: email,
-        LoginPassword: password,
+      const response = await fetch("http://localhost:5000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          LoginEmail: email,
+          LoginPassword: password,
+        }),
       });
+      if (response.ok) {
+        const responseData = await response.json();
 
-      if (response.status === 200 && response.data && response.data.user_id) {
-        const { user_id, username } = response.data;
-        localStorage.setItem("user_id", user_id);
-        localStorage.setItem("username", username);
-        navigate("/");
+        if (responseData && responseData.user_id) {
+          const { user_id, username } = responseData;
+          localStorage.setItem("user_id", user_id);
+          localStorage.setItem("username", username);
+          navigate("/");
+        } else {
+          setError("Invalid credentials");
+        }
       } else {
         setError("Invalid credentials");
       }

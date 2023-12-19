@@ -16,7 +16,6 @@ const isEmptyValue = (value) => {
 };
 
 const isEmailInvalid = (email) => {
-  // Sử dụng một biểu thức chính quy đơn giản để kiểm tra tính hợp lệ của email
   const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   return !emailPattern.test(email);
 };
@@ -28,9 +27,9 @@ const Register = () => {
     navigate("/");
   }, [navigate]);
 
-  //#region component
   const [formValue, setFromValue] = useState(initFromValue);
   const [formError, setFromError] = useState(initFromValue);
+  const [emailTakenError, setEmailTakenError] = useState("");
   const handleInputChange = (event) => {
     const { value, name } = event.target;
     setFromValue({
@@ -80,23 +79,53 @@ const Register = () => {
     const isFormValid = validateForm();
   
     if (isFormValid) {
-      // Gửi thông tin đăng ký thành công
       try {
-        const createUser = await axios.post('http://localhost:5000/register', {
-          Name: formValue.name,
-          Email: formValue.email,
-          Password: formValue.password
+        const emailAvailabilityResponse = await fetch(`http://localhost:5000/check-email`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            Email: formValue.email,
+          }),
         });
-        
-        // Nếu đăng ký thành công, thực hiện chuyển hướng đến trang đăng nhập
-        if (createUser.data.message === 'User added!') {
-          navigate("/login"); // Chuyển hướng sang trang đăng nhập
+
+        if (emailAvailabilityResponse.ok) {
+          const emailAvailabilityData = await emailAvailabilityResponse.json();
+          if (emailAvailabilityData.available) {
+            const registrationResponse = await fetch('http://localhost:5000/register', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                Name: formValue.name,
+                Email: formValue.email,
+                Password: formValue.password,
+              }),
+            });
+
+            if (registrationResponse.ok) {
+              const registrationData = await registrationResponse.json();
+
+              if (registrationData.message === 'User added!') {
+                navigate("/login");
+              }
+            } else {
+              console.error('Error during registration:', registrationResponse.status);
+            }
+          } else {
+            setEmailTakenError("Email is already taken");
+          }
+        } else {
+          console.error('Error checking email availability:', emailAvailabilityResponse.status);
         }
       } catch (error) {
         console.error('Error during registration:', error);
       }
     }
   };
+  
 
   return (
     <div className="register">
@@ -134,6 +163,9 @@ const Register = () => {
             />
             {formError.email && (
               <div className="error-feedback">{formError.email}</div>
+            )}
+            {emailTakenError && (
+              <div className="error-feedback">{emailTakenError}</div>
             )}
           </div>
           <div className="password1">

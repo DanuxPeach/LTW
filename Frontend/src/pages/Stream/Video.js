@@ -27,32 +27,51 @@ const Stream = () => {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/video/comments/${videoUUID}`);
-        setComments(response.data);
+        const response = await fetch(`http://localhost:5000/video/comments/${videoUUID}`);
+        if (response.ok) {
+          const data = await response.json();
+          setComments(data);
+        } else {
+          console.error('Fetch comments error:', response.status);
+          setComments([]);
+        }
       } catch (error) {
         console.error('Fetch comments error:', error);
         setComments([]);
       }
     };
-
+  
     const fetchLikesCount = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/video/likes/${videoUUID}`);
-        setLikesCount(response.data.like_count);
+        const response = await fetch(`http://localhost:5000/video/likes/${videoUUID}`);
+        if (response.ok) {
+          const data = await response.json();
+          setLikesCount(data.like_count);
+        } else {
+          console.error('Fetch likes count error:', response.status);
+          setLikesCount(0);
+        }
       } catch (error) {
         console.error('Fetch likes count error:', error);
         setLikesCount(0);
       }
     };
+  
     const fetchRecommendations = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/recommend/${videoUUID}`);
-        setRecommendList(response.data);
-        console.log('Response Recommend: ', response.data);
+        const response = await fetch(`http://localhost:5000/recommend/${videoUUID}`);
+        if (response.ok) {
+          const data = await response.json();
+          setRecommendList(data);
+          console.log('Response Recommend: ', data);
+        } else {
+          console.error('Error fetching recommendations:', response.status);
+        }
       } catch (error) {
         console.error('Error fetching recommendations:', error);
       }
     };
+  
     fetchComments();
     fetchLikesCount();
     fetchRecommendations();
@@ -60,32 +79,43 @@ const Stream = () => {
 
   const handleLike = async () => {
     if (!user) {
-      // Xử lý khi người dùng chưa đăng nhập
       return;
     }
-
+  
     try {
-      // Gửi request để thực hiện like video
-      await axios.post(`http://localhost:5000/video/like`, { videoUUID, userId: user.user_id });
-      // Cập nhật số lượt like sau khi thực hiện like thành công
+      await fetch(`http://localhost:5000/video/like`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ videoUUID, userId: user.user_id }),
+      });
       setLikesCount(prevCount => prevCount + 1);
     } catch (error) {
       console.error('Like video error:', error);
     }
   };
-
+  
   const handleComment = async (commentText) => {
     if (!user) {
-      // Xử lý khi người dùng chưa đăng nhập
       return;
     }
-
+  
     try {
-      // Gửi request để thêm comment vào video
-      await axios.post(`http://localhost:5000/video/comment`, { videoUUID, userId: user.user_id, commentText });
-      // Lấy lại danh sách comments sau khi thêm comment thành công
-      const response = await axios.get(`http://localhost:5000/video/comments/${videoUUID}`);
-      setComments(response.data);
+      await fetch(`http://localhost:5000/video/comment`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ videoUUID, userId: user.user_id, commentText }),
+      });
+      const response = await fetch(`http://localhost:5000/video/comments/${videoUUID}`);
+      if (response.ok) {
+        const data = await response.json();
+        setComments(data);
+      } else {
+        console.error('Error fetching comments:', response.status);
+      }
     } catch (error) {
       console.error('Add comment error:', error);
     }
@@ -97,7 +127,6 @@ const Stream = () => {
       const uuidQuery = queryParams.get('v');
       if (uuidQuery) {
         try {
-          // Make an API call using Axios with async/await
           const response = await axios.get(`http://localhost:5000/videodetails?v=${uuidQuery}`);
           setVideoDetails(response.data);
           setVideoKey(uuidQuery);
@@ -120,7 +149,7 @@ const Stream = () => {
       const commentText = event.target.value.trim();
       if (commentText !== '') {
         handleComment(commentText);
-        event.target.value = ''; // Clear input field after adding comment
+        event.target.value = '';
       }
     }
   };
