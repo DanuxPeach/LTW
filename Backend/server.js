@@ -57,7 +57,7 @@ app.post('/register', async (req, res) => {
     });
 });
 
-app.post('/check-email', (req, res) => {
+app.post('/email', (req, res) => {
     const sentEmail = req.body.Email;
 
     const SQL = `SELECT * FROM Users WHERE email = ?`;

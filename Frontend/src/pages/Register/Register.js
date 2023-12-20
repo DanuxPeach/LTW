@@ -80,7 +80,7 @@ const Register = () => {
   
     if (isFormValid) {
       try {
-        const emailAvailabilityResponse = await fetch(`http://localhost:5000/check-email`, {
+        const emailAvailabilityResponse = await fetch(`http://localhost:5000/email`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

@@ -44,7 +44,7 @@ const Search = () => {
       <input className='search' type="text" placeholder="Search" value={searchTerm} onChange={handleChange} onKeyDown={handleKeyDown} />
       <div className='searchrecommend'>
         {videoList.map((video) => (
-            <div key={video.video_uuid}className="video-title">{video.title}</div>
+            <div key={video.video_uuid}className="serachtitle">{video.title}</div>
         ))}
       </div>
     </div>
