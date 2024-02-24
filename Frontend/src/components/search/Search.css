@@ -1,0 +1,14 @@
+.search {
+    position: absolute;
+    font-family: var(--font-cherry-bomb);
+    font-size: var(--font-size-base);
+    border: 0;
+    background-color: var(--color-gray);
+    top: 31px;
+    left: 74px;
+    border-radius: var(--br-xl);
+    width: 350px;
+    height: 45px;
+    padding: 0 15px;
+    text-align: left;
+  }

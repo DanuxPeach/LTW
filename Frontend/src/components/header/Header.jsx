@@ -1,11 +1,11 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import "./Header.css";
+import Search from '../search/Search';
 
-const Header = () => {
+const Header = ({  user, setUser }) => {
     const navigate = useNavigate();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [user, setUser] = useState(null);
 
     const onLogoContainerClick = useCallback(() => {
         navigate("/");
@@ -21,9 +21,11 @@ const Header = () => {
 
     useEffect(() => {
         // Lấy thông tin người dùng từ localStorage hoặc Context/Redux khi trang được tải
-        const storedUser = localStorage.getItem('user');
-        if (storedUser) {
-          setUser(JSON.parse(storedUser));
+        const storedUserId = localStorage.getItem('user_id');
+        const storedUsername = localStorage.getItem('username');
+
+        if (storedUserId && storedUsername) {
+          setUser({ user_id: storedUserId, username: storedUsername });
           setIsLoggedIn(true); // Đã đăng nhập thành công
         } else {
           // Chưa có người dùng nào đăng nhập, hiển thị các nút đăng ký và đăng nhập
@@ -47,7 +49,7 @@ const Header = () => {
                 </div>
                 <img className="group-icon" alt="" src="/group-2441.svg" />
             </div>
-            <input className="search" placeholder="Search" type="text" />
+            < Search />
             {isLoggedIn ? (
                 <>
                     <div className="user-info">{user.username}</div>
